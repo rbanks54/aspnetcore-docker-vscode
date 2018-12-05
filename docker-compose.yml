@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  aspnetcore-docker-vscode.web:
+    image: aspnetcore-docker-vscode.web       
+    build:
+      context: ./
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "5001:80"
+    volumes: 
+      - ./:/app
+    container_name: aspnetcore-docker-vscode.web
