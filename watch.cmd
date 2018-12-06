@@ -1,0 +1,1 @@
+docker-compose exec aspnetcore-docker-vscode.web dotnet watch --project /app -- /app/bin/Debug/netcoreapp2.1/aspnetcoreDockerVsCode.dll run

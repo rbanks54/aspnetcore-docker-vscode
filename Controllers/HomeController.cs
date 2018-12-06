@@ -12,6 +12,8 @@ namespace aspnetcoreDockerVsCode.Controllers
     {
         public IActionResult Index()
         {
+            var x = 2;
+            var y = x.ToString();
             return View();
         }
 
