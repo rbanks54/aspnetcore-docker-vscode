@@ -1,10 +1,26 @@
-# Intentions
+# About this sample
 
-So my ultimate intentions for this are to be able to have the application running on port 5001 (example) - mapped to this directory, so re-building the solution automatically reflects when visiting http://localhost:5001 (like when pressing F5 in VS Code currently)
+A working example of starting an debugging a .net core app in a docker container from VSCode
 
-Also, other required containers (mysql, redis etc... for example) could also be running.  
+#### Basics
+To use it, do the following
 
-Not sure how to be able to debug this running container.
+* run `docker-compose up -d`
+* run `watch.cmd`
+* In VSCode, set a breakpoint and then attach the debugger using either of the 'Attach to web' options.
+* browse to http://localhost:5001 and see your breakpoint get hit
 
-Currently, if I run `docker-compose up -d` and visit http://localhost:5001 in the browser, I get `ERR_EMPTY_RESPONSE`
-So I'm certainly doing something wrong!
+If you're on linux/mac, just run the docker-compose command inside `watch.cmd` manually
+
+#### Taking it further
+
+* make a change to the code as save it
+* recompile the application locally. Your console output should show the web site restarting. 
+* reattach the debugger (the process id will probably have changed). You should be able to just press F5
+
+When you're done, just hit ctrl-c to end your watch command in the container and take the environment down using 'docker-compose down'.
+
+#### Notes
+This sample was forked from [alexjamesbrown/aspnetcore-docker-vscode](https://github.com/alexjamesbrown/aspnetcore-docker-vscode), and arose from this twitter thread https://twitter.com/alexjamesbrown/status/1069751862381944833
+
+More information and details can be found in my post at https://www.richard-banks.org/2018/07/debugging-core-in-docker.html

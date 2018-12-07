@@ -60,5 +60,23 @@
                 ]
             }
         },
+        {
+            "name": "Attach to Web (Docker-Compose)",
+            "type": "coreclr",
+            "request": "attach",
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+                "debuggerPath": "/vsdbg/vsdbg",
+                "pipeProgram": "docker-compose",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": false,
+                "pipeArgs": [
+                    "exec -T aspnetcore-docker-vscode.web"
+                ]
+            }
+        },
     ]
 }
